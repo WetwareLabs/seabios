@@ -69,7 +69,8 @@ void xen_preinit(void)
 
         dprintf(9, "Found hypervisor signature \"%s\" at %x\n",
                 signature, base);
-        if (strcmp(signature, "XenVMMXenVMM") == 0) {
+        if ( (strcmp(signature, "XenVMMXenVMM") == 0) ||
+                (strcmp(signature, "ZenZenZenZen" ) == 0 ) ) {
             /* Set debug_io_port first, so the following messages work. */
             DebugOutputPort = 0xe9;
             debug_banner();
